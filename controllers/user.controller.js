@@ -36,5 +36,6 @@ module.exports.createPost = (req, res) => {
 }
 
 module.exports.setttttttCookie = (req, res) => {
-    res.render('users/create')
+    res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true })
+    res.send('Hello')
 }
