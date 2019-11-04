@@ -6,4 +6,7 @@ var controller = require('../controllers/product.controller')
 
 router.get('/', controller.index)
 
+router.post('/', controller.create)
+
+
 module.exports = router
