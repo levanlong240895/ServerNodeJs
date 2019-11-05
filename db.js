@@ -5,7 +5,8 @@ const db = low(adapter)
 db.defaults({
     users: [],
     sessions: [],
-    transfers: []
+    transfers: [],
+    shipping: []
 })
     .write()
 

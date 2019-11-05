@@ -20,12 +20,19 @@ var cartRoutes = require('./routes/cart.route')
 var transferRoutes = require('./routes/transfer.route')
 
 var apiProductRoute = require('./api/routes/product.route')
+var apiShippingRoute = require('./api/routes/shipping.route')
 
 var authMiddleware = require('./middlewares/auth.middleware')
 var sessionMiddleware = require('./middlewares/session.middleware')
 
 app.set('view engine', 'pug')
 app.set('views', './views')
+
+app.use(function(req, res, next){
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    next();
+})
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -46,5 +53,6 @@ app.use('/cart', cartRoutes)
 app.use('/transfer', authMiddleware.requireAuth, transferRoutes)
 
 app.use('/api/products', apiProductRoute)
+app.use('/api/shippings', apiShippingRoute)
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`))
