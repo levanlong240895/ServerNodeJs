@@ -3,7 +3,7 @@ require('dotenv').config()
 // console.log(process.env.SESSION_SECRET)
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 // var csurf = require('csurf')
 // setup route middlewares
 // var csrfProtection = csrf({ cookie: true })
